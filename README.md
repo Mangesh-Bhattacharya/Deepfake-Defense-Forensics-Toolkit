@@ -15,7 +15,7 @@ for a direct responsibility → code mapping.
 
 ---
 
-## Architecture
+## Architecture (Wire-framework diagram)
 
 ```
                          ┌─────────────────────────────┐
@@ -52,8 +52,13 @@ for a direct responsibility → code mapping.
         └───────────────────────────────────────────┘
 ```
 
+## Conceptual Architecture diagram
+
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/3c83e778-353c-42e4-b30c-676a8b52c04c" />
+
+
 The LLM layer sits **downstream** of every decision-making component. It never computes a
-verdict, a classifier score, or a vulnerability score — those are always deterministic. It
+verdict, a classifier score, or a vulnerability score those are always deterministic. It
 only narrates and explains structured evidence that already exists. See
 [`docs/llm-usage-guide.md`](docs/llm-usage-guide.md).
 
