@@ -1,0 +1,16 @@
+{
+  "case_id": "CASE-0001",
+  "packaged_at": "2026-07-07T19:55:24.288589+00:00",
+  "files": [
+    {
+      "filename": "CASE-0001_forensic_report.md",
+      "sha256": "7720f95b6dc736fa30aca990ba22a2a63e55b4ab7b9d17eec3f8fc6305c21589",
+      "size_bytes": 1660
+    },
+    {
+      "filename": "CASE-0001_forensic_report.json",
+      "sha256": "d5d307a2b988122fc81935fe2eada7ea47d6b23b1c2d4b7c005a3aa6d32e2624",
+      "size_bytes": 1296
+    }
+  ]
+}

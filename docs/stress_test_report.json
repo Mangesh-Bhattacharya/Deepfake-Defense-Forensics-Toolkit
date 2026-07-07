@@ -1,0 +1,102 @@
+{
+  "generated_at": "2026-07-07T19:55:19.745961+00:00",
+  "overall_vulnerability_score": 0.8182,
+  "subsystems": [
+    {
+      "subsystem": "face_recognition",
+      "total_attacks": 5,
+      "successful_attacks": 5,
+      "vulnerability_score": 1.0,
+      "details": [
+        {
+          "attack_name": "print_attack",
+          "similarity_to_genuine": 0.9508757591247559,
+          "match_threshold": 0.85,
+          "fooled_system": true
+        },
+        {
+          "attack_name": "replay_attack",
+          "similarity_to_genuine": 0.9448372721672058,
+          "match_threshold": 0.85,
+          "fooled_system": true
+        },
+        {
+          "attack_name": "mask_attack",
+          "similarity_to_genuine": 0.9554170370101929,
+          "match_threshold": 0.85,
+          "fooled_system": true
+        },
+        {
+          "attack_name": "adversarial_patch",
+          "similarity_to_genuine": 0.9959201216697693,
+          "match_threshold": 0.85,
+          "fooled_system": true
+        },
+        {
+          "attack_name": "morph_attack",
+          "similarity_to_genuine": 0.9534283876419067,
+          "match_threshold": 0.85,
+          "fooled_system": true
+        }
+      ]
+    },
+    {
+      "subsystem": "voice_recognition",
+      "total_attacks": 3,
+      "successful_attacks": 3,
+      "vulnerability_score": 1.0,
+      "details": [
+        {
+          "attack_name": "pitch_shift_attack",
+          "similarity_to_enrolled": 0.9975632640898275,
+          "match_threshold": 0.9,
+          "fooled_system": true
+        },
+        {
+          "attack_name": "replay_attack",
+          "similarity_to_enrolled": 0.961888895844711,
+          "match_threshold": 0.9,
+          "fooled_system": true
+        },
+        {
+          "attack_name": "adversarial_noise",
+          "similarity_to_enrolled": 0.9996073926227347,
+          "match_threshold": 0.9,
+          "fooled_system": true
+        }
+      ]
+    },
+    {
+      "subsystem": "liveness_detection",
+      "total_attacks": 3,
+      "successful_attacks": 1,
+      "vulnerability_score": 0.3333333333333333,
+      "details": [
+        {
+          "technique": "static_photo_bypass",
+          "motion_score": 0.0,
+          "periodicity_score": 0.0,
+          "texture_score": 0.0,
+          "liveness_verdict": "SPOOF",
+          "bypassed": false
+        },
+        {
+          "technique": "looped_video_bypass",
+          "motion_score": 17.769821166992188,
+          "periodicity_score": 0.0,
+          "texture_score": 0.0,
+          "liveness_verdict": "LIVE",
+          "bypassed": true
+        },
+        {
+          "technique": "texture_spoof_bypass",
+          "motion_score": 15.249385833740234,
+          "periodicity_score": -0.022182883694767952,
+          "texture_score": 0.5403645833333334,
+          "liveness_verdict": "SPOOF",
+          "bypassed": false
+        }
+      ]
+    }
+  ]
+}

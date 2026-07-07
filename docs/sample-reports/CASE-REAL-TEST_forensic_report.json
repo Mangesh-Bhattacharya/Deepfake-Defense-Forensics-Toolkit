@@ -1,0 +1,13 @@
+{
+  "case": {
+    "case_id": "CASE-REAL-TEST",
+    "evidence_id": "real_0000.png",
+    "analyst": "automated-pipeline",
+    "evidence_description": "Still image submitted for synthetic-media forensic analysis: `real_0000.png`.",
+    "overall_verdict": "LIKELY_AUTHENTIC",
+    "overall_confidence": 0.005,
+    "generated_at": "2026-07-07T19:50:50.503107+00:00"
+  },
+  "markers": [],
+  "llm_narrative": null
+}

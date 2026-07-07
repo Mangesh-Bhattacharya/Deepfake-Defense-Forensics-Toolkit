@@ -1,0 +1,34 @@
+{
+  "case": {
+    "case_id": "CASE-LINT-CHECK",
+    "evidence_id": "synthetic_0000.png",
+    "analyst": "automated-pipeline",
+    "evidence_description": "Still image submitted for synthetic-media forensic analysis: `synthetic_0000.png`.",
+    "overall_verdict": "LIKELY_SYNTHETIC",
+    "overall_confidence": 1.0,
+    "generated_at": "2026-07-07T19:53:21.687569+00:00"
+  },
+  "markers": [
+    {
+      "marker_type": "color_channel_corr",
+      "confidence": 0.924,
+      "detail": "Unusually high cross-channel noise correlation, atypical of independent raw sensor noise per color channel."
+    },
+    {
+      "marker_type": "local_variance_std",
+      "confidence": 0.812,
+      "detail": "High variability in local block variance, consistent with GAN over-smoothing in some regions and sharp injected structure in others."
+    },
+    {
+      "marker_type": "noise_residual_entropy",
+      "confidence": 0.585,
+      "detail": "Unusually low noise-residual entropy, consistent with structured/periodic artifacts rather than organic sensor noise."
+    },
+    {
+      "marker_type": "high_freq_energy_ratio",
+      "confidence": 0.99,
+      "detail": "Elevated high-frequency spectral energy relative to baseline, consistent with GAN/diffusion upsampling artifacts."
+    }
+  ],
+  "llm_narrative": null
+}

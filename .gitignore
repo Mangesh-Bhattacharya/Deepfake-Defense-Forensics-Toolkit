@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Models & generated data (regenerable via scripts — keep repo lean)
+datasets/synthetic_media/*.png
+models/*.pkl
+
+# OS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/

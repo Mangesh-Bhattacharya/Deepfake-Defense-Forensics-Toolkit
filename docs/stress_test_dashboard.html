@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Biometric Stress-Test Dashboard</title>
+<style>
+body { font-family: -apple-system, Arial, sans-serif; margin: 40px; background:#0f1115; color:#e6e6e6; }
+h1 { color:#fff; }
+table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+th, td { border: 1px solid #333; padding: 10px; text-align: left; }
+th { background:#1b1e26; }
+.summary { font-size: 1.4em; margin: 20px 0; }
+</style></head>
+<body>
+<h1>Biometric Stress-Test Scoring Dashboard</h1>
+<p>Generated: 2026-07-07T19:55:19.745961+00:00</p>
+<div class="summary">Overall vulnerability score: <b>82%</b>
+(fraction of simulated attacks that successfully fooled a subsystem)</div>
+<table>
+<tr><th>Subsystem</th><th>Attacks run</th><th>Successful attacks</th><th>Vulnerability score</th></tr>
+
+        <tr>
+          <td>face_recognition</td>
+          <td>5</td>
+          <td>5</td>
+          <td style="color:#c0392b">
+            100%
+          </td>
+        </tr>
+        <tr>
+          <td>voice_recognition</td>
+          <td>3</td>
+          <td>3</td>
+          <td style="color:#c0392b">
+            100%
+          </td>
+        </tr>
+        <tr>
+          <td>liveness_detection</td>
+          <td>3</td>
+          <td>1</td>
+          <td style="color:#e67e22">
+            33%
+          </td>
+        </tr>
+</table>
+<p style="margin-top:30px;color:#888;font-size:0.9em;">
+This dashboard uses lightweight, dependency-free stand-in embeddings/liveness heuristics
+(see biometric-stress-tests/*.py docstrings) so it runs end-to-end without a GPU or a real
+biometric SDK. Vulnerability findings here demonstrate the *methodology*; production use
+requires re-running this battery against the real deployed embedding/liveness models.
+</p>
+</body></html>
