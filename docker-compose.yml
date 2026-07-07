@@ -1,0 +1,20 @@
+# docker-compose.yml -- convenience wrapper around the Dockerfile.
+#
+# Usage:
+#   docker compose run --rm toolkit                     # full end-to-end demo
+#   docker compose run --rm toolkit make test            # just the test suite
+#   docker compose run --rm toolkit make lint security   # lint + bandit
+#
+# Optionally attach a local Ollama server (see llm-layer/ollama_config.md) by
+# setting OLLAMA_HOST to point at host.docker.internal instead of localhost.
+
+services:
+  toolkit:
+    build: .
+    image: deepfake-defense-forensics-toolkit
+    environment:
+      - OLLAMA_HOST=${OLLAMA_HOST:-http://host.docker.internal:11434}
+    volumes:
+      - ./docs/sample-reports:/app/docs/sample-reports
+      - ./datasets/synthetic_media:/app/datasets/synthetic_media
+    command: ["./scripts/run_full_demo.sh"]

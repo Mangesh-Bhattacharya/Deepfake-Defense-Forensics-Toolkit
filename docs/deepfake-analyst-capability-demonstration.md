@@ -44,7 +44,10 @@ python3 datasets/generators/synthetic_data_generator.py --out datasets/synthetic
 python3 artifact-detection/classifier/synthetic_classifier.py
 python3 biometric-stress-tests/stress_test_dashboard.py
 python3 forensic-reporting/report_generator.py --llm
+node tools/node-evidence-verifier/verify_bundle.js docs/sample-reports/CASE-0001_evidence_bundle.zip
 python3 ai-safety-evaluation/model_drift_detection.py
 python3 annotation-simulator/annotation_workflow_simulator.py
 pytest tests/ -q
 ```
+
+Or, equivalently, one command: `make demo` (see `Makefile`) / `./scripts/run_full_demo.sh`.

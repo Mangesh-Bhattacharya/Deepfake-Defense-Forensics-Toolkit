@@ -18,3 +18,13 @@ models/*.pkl
 # Editors
 .vscode/
 .idea/
+
+# Node
+node_modules/
+*.log
+
+# SQL
+*.db
+*.sqlite3
+
+# Docker

@@ -72,6 +72,32 @@ only narrates and explains structured evidence that already exists. See
 
 Each module folder has its own README with a runnable quickstart.
 
+## Tech stack
+
+The core toolkit is Python (numpy/opencv/scikit-learn/scipy/reportlab), matching the
+job's ML/CV surface area. A few pieces are deliberately polyglot, the way a real
+production forensics toolkit accumulates tooling over time:
+
+| Language | Where | Why |
+|---|---|---|
+| Python | every module | detection, classifiers, reporting, evaluation |
+| Bash | `scripts/setup.sh`, `scripts/run_full_demo.sh` | environment bootstrap, one-command E2E demo |
+| Make | `Makefile` | `make demo`, `make test`, `make lint`, `make docker-build`, ... |
+| Node.js (zero deps) | `tools/node-evidence-verifier/` | independent evidence-bundle integrity verifier — see below |
+| SQL | `forensic-reporting/sql/schema.sql` | optional relational persistence for cases/markers/custody at scale |
+| Docker / Compose | `Dockerfile`, `docker-compose.yml` | containerized, reproducible environment |
+| YAML | `.github/workflows/ci.yml` | CI: lint, security scan, tests on every push |
+
+### Why a Node.js evidence verifier specifically
+
+`forensic-reporting/evidence_packaging.py` writes a SHA-256 manifest into every evidence
+bundle. `tools/node-evidence-verifier/verify_bundle.js` re-verifies that manifest from
+scratch in a completely different language runtime, using only Node's built-in `fs`,
+`zlib`, and `crypto` modules (no npm install). That matters for forensic integrity: a
+verifier written independently of the code that produced the artifact is a meaningfully
+stronger check than re-running the original producer's own code. See
+[`tools/node-evidence-verifier/README.md`](tools/node-evidence-verifier/README.md).
+
 ---
 
 ## Installation
@@ -111,7 +137,14 @@ python3 annotation-simulator/annotation_workflow_simulator.py
 
 # 7. Run the test suite
 pytest tests/ -q
+
+# 8. (optional) verify the evidence bundle independently, in Node.js
+node tools/node-evidence-verifier/verify_bundle.js docs/sample-reports/CASE-0001_evidence_bundle.zip
 ```
+
+Or run all of the above in one shot: `make demo` (see `Makefile` for individual
+`make test`, `make lint`, `make security`, `make docker-build` targets), or
+`./scripts/setup.sh --dev && ./scripts/run_full_demo.sh`.
 
 ## Example output
 
@@ -171,10 +204,18 @@ Deepfake-Defense-Forensics-Toolkit/
 ├── tests/
 │   ├── unit/
 │   └── integration/
+├── tools/
+│   └── node-evidence-verifier/   # Node.js, zero deps
+├── scripts/
+│   ├── setup.sh
+│   └── run_full_demo.sh
 ├── .github/
 │   ├── workflows/
 │   ├── ISSUE_TEMPLATE/
 │   └── PULL_REQUEST_TEMPLATE/
+├── Makefile
+├── Dockerfile
+├── docker-compose.yml
 ├── LICENSE
 ├── SECURITY.md
 ├── CONTRIBUTING.md

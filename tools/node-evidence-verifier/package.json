@@ -1,0 +1,16 @@
+{
+  "name": "evidence-bundle-verifier",
+  "version": "1.0.0",
+  "description": "Zero-dependency Node.js verifier for Deepfake-Defense-Forensics-Toolkit evidence bundles (SHA-256 manifest + tamper detection).",
+  "main": "verify_bundle.js",
+  "bin": {
+    "verify-bundle": "./verify_bundle.js"
+  },
+  "scripts": {
+    "test": "node --test test/verify_bundle.test.js"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
